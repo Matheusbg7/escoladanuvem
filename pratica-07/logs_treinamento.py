@@ -1,0 +1,20 @@
+import pandas as pd
+
+def processar_logs_treinamento(nome_arquivo):
+    try:
+        df = pd.read_csv(nome_arquivo)
+        desvio_padrao_tempo = df['tempo_execucao'.stfd()]
+        media = df['tempo_execucao'].mean()
+        print(f"O Desvio Padrão (DP) é: {desvio_padrao_tempo: .2f}")
+        print(f"A Média do tempo de execução é: {media: .2f}")
+    except FileNotFoundError:
+        print("Arquivo não encontrado.")
+    except Exception as e:
+        print(f"Erro ao processar o arquivo de log: {e}")
+
+
+
+
+
+nome_arquivo = input("Digiye o nome do arquivo de log: ")
+processar_logs_treinamento(nome_arquivo)
